@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css" />
+    <script>
+      function validateForm() {
+        var E = document.getElementById("email_id").value;
+        var P = document.getElementById("password_id").value;
+
+        if (E == "" || P == "") {
+          alert("Please fill all the details!");
+          return false;
+        }
+
+        // Validate email format
+        var atposition = E.indexOf("@");
+        var dotposition = E.lastIndexOf(".");
+
+        if (
+          atposition < 1 ||
+          dotposition < atposition + 2 ||
+          dotposition + 2 >= E.length
+        ) {
+          alert("Please enter a valid email address!");
+          return false;
+        }
+
+        // Redirect to app.html after successful validation
+        window.location.href = "app.html";
+        return false; // Prevent form submission
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-img">
+      <div
+        class="container"
+        style="
+          background-image: linear-gradient(
+            79deg,
+            #39dbd3,
+            #6fadc6 48%,
+            #4d67f7
+          );
+          color: white;
+          padding: 4rem;
+          border-radius: 25px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 260px;
+          display: block;
+          margin-top: 130px;
+          margin-bottom: 100px;
+          height: 338px;
+        "
+      >
+        <h1 style="text-align: center; margin-top: -20px">Login</h1>
+        <br />
+        <form
+          class="login-form"
+          name="loginForm"
+          onsubmit="return validateForm()"
+          style="display: flex; flex-direction: column"
+        >
+          <label
+            for="email_id"
+            style="text-align: left; padding: 0.25rem 0; font-size: larger"
+            ><b>Email</b></label
+          >
+          <input
+            type="email"
+            placeholder="enter your email"
+            id="email_id"
+            name="email"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border: none;
+              border-radius: 10px;
+              height: 23px;
+            "
+          />
+          <label
+            for="password_id"
+            style="display: flex; flex-direction: column; font-size: larger"
+            ><b>Password</b></label
+          >
+          <input
+            type="password"
+            placeholder="enter your password"
+            id="password_id"
+            name="password"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border: none;
+              border-radius: 10px;
+              height: 23px;
+            "
+          /><br />
+          <button
+            type="submit"
+            style="
+              border: none;
+              background-color: white;
+              padding: 20px;
+              border-radius: 10px;
+              cursor: pointer;
+              color: #000000;
+              margin-bottom: 15px;
+              display: block;
+              width: 120px;
+              margin-left: auto;
+              margin-right: auto;
+              font-size: medium;
+              font-weight: bold;
+              background-color: rgb(146, 252, 178);
+            "
+          >
+            <b>Login</b>
+          </button>
+        </form>
+        <a
+          class="link-btn"
+          href="signup.html"
+          style="
+            background: none;
+            color: white;
+            text-decoration: underline;
+            text-align: center;
+          "
+          >Don't have an account? Sign Up</a
+        >
+        <br /><a
+          class="link-btn"
+          href="app.html"
+          style="
+            background: none;
+            color: white;
+            text-decoration: underline;
+            text-align: center;
+          "
+          >Return to HomePage</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css" />
+    <style>
+      /* Add any additional CSS styling here */
+    </style>
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value.trim();
+        var email = document.getElementById("email").value.trim();
+        var mobile = document.getElementById("mobile_no").value.trim();
+        var password = document.getElementById("password").value.trim();
+
+        if (name === "" || email === "" || mobile === "" || password === "") {
+          alert("Please fill all the details!");
+          return false;
+        }
+
+        // Validate name
+        var nameRegex = /^[A-Za-z\s]+$/;
+        if (!name.match(nameRegex)) {
+          alert("Enter characters only in Name!");
+          return false;
+        }
+
+        // Validate email
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.match(emailRegex)) {
+          alert("Please enter a valid email address!");
+          return false;
+        }
+
+        // Validate mobile number
+        if (mobile.length !== 10 || isNaN(mobile)) {
+          alert("Enter a 10-digit mobile number only!");
+          return false;
+        }
+
+        // Redirect to login.html after successful validation
+        window.location.href = "login.html";
+        return false; // Prevent form submission
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-img">
+      <div
+        class="container"
+        style="
+          background-image: linear-gradient(
+            79deg,
+            #39dbd3,
+            #6fadc6 48%,
+            #4d67f7
+          );
+          color: white;
+          padding: 5rem;
+          border-radius: 25px;
+          margin-left: auto;
+          margin-right: auto;
+          width: 300px;
+          display: block;
+          margin-top: 62px;
+          margin-bottom: 2px;
+          height: 480px;
+        "
+      >
+        <h1 style="text-align: center; margin-top: -40px">Sign Up</h1>
+        <br />
+        <form
+          class="signup-form"
+          name="signupForm"
+          onsubmit="return validateForm()"
+          style="display: flex; flex-direction: column"
+        >
+          <label
+            for="name"
+            style="text-align: left; padding: 0.25rem; font-size: larger"
+            ><b>Full name</b></label
+          >
+          <input
+            id="name"
+            placeholder="Enter your full Name"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border-radius: 10px;
+              height: 14px;
+            "
+          />
+          <label
+            for="email"
+            style="text-align: left; padding: 0.25rem 0; font-size: larger"
+            ><b>Email</b></label
+          >
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border-radius: 10px;
+              height: 14px;
+            "
+          />
+          <label
+            for="mobile_no"
+            style="text-align: left; padding: 0.25rem; font-size: larger"
+            ><b>Mobile No</b></label
+          >
+          <input
+            id="mobile_no"
+            placeholder="Enter your mobile no"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border-radius: 10px;
+              height: 14px;
+            "
+          />
+          <label
+            for="password"
+            style="text-align: left; padding: 0.25rem 0; font-size: larger"
+            ><b>Password</b></label
+          >
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            style="
+              margin: 0.5rem 0;
+              padding: 1rem;
+              border-radius: 10px;
+              height: 14px;
+            "
+          /><br />
+          <button
+            type="submit"
+            style="
+              border: none;
+              background-color: white;
+              padding: 20px;
+              border-radius: 10px;
+              cursor: pointer;
+              color: #000000;
+              margin-bottom: 17px;
+              display: block;
+              width: 120px;
+              margin-left: auto;
+              margin-right: auto;
+              font-size: medium;
+              font-weight: bold;
+              background-color: rgb(146, 252, 178);
+            "
+          >
+            <b>Sign Up</b>
+          </button>
+        </form>
+        <a
+          class="link-btn"
+          href="login.html"
+          style="
+            background: none;
+            color: white;
+            text-decoration: underline;
+            text-align: center;
+          "
+          >Already have an account? Login</a
+        >
+        <br /><a
+          class="link-btn"
+          href="app.html"
+          style="
+            background: none;
+            color: white;
+            text-decoration: underline;
+            text-align: center;
+          "
+          >Return to HomePage</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
